@@ -1,6 +1,6 @@
 # S2B: Sketch-to-BERT Classification System
 
-This project provides reproducible experimental code for the ICDCS 2026 conference under review.
+This repository contains reproducible experimental code for the paper currently under review at ICDCS 2026.
 
 ## 📋 Table of Contents
 
@@ -13,15 +13,15 @@ This project provides reproducible experimental code for the ICDCS 2026 conferen
 
 ## Overview
 
-S2B is a classification system that combines Sketch-based filtering with BERT models. It supports three modes:
-- **s2b-c**: Cascade mode (Sketch → BERT)
-- **s2b-s**: Sketch-only mode
-- **s2b-b**: BERT-only mode
+S2B is a classification framework that integrates sketch-based filtering and BERT-based models, and operates in three modes:
+- **S2B-C**: Cascade mode (Sketch → BERT)
+- **S2B-S**: Sketch-only mode
+- **S2B-B**: BERT-only mode
 
 ## Environment Setup
 
 ### 1. Python Version
-- Python 3.x (recommended: 3.10 or higher)
+- Python 3.12.2
 
 ### 2. Install Dependencies
 
@@ -49,7 +49,7 @@ transformers==4.57.6
 
 ### 3. Hugging Face Model Cache
 
-BERT models are cached in the `./hf_cache` directory. Pre-download the required models or remove the `local_files_only=True` option in `models/s2b.py` (line 25), `models/pl_bert_model.py` (line 4).
+BERT models are cached in the `./hf_cache` directory. You may either pre-download the required models or remove the `local_files_only=True` option in `models/s2b.py` (line 25) and `models/pl_bert_model.py` (line 4).
 
 ## Environment Variables Configuration
 
@@ -63,7 +63,7 @@ Create a `.env` file in the project root and configure the following environment
 DIM=30                    # packet max length
 
 # Number of labels
-LABEL=10                   # Number of classification classes
+LABEL=120                   # Number of classification classes
 
 # Mode settings
 MODE=s2b-c                 # Execution mode: s2b-c, s2b-s, s2b-b
@@ -89,7 +89,7 @@ RAW_TEST_DF=/path/to/raw_test.csv
 OPEN_RAW_TEST_DF=/path/to/raw_openworld_test.csv
 
 # Raw data column names
-RAW_X_LABEL=pcaket_length              # Input data column name
+RAW_X_LABEL=pcaket_length      # Input data column name
 RAW_Y_LABEL=label              # Label column name
 
 # Dataset path
